@@ -1,12 +1,9 @@
 package dev.jhonis.pjccge.domain.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,27 +14,26 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa implements Serializable{
+public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Include
 	@Id
 	private Long id;
 	
-	private String nome;
+	private TipoLogradouro tipoLogradouro;
 	
-	private Date dataNascimento;
+	private String logradouro;
 	
-	private Sexo sexo;
+	private Integer numero;
 	
-	private String nomeMae;
+	private String bairro;
 	
-	private String nomePai;
-
-	public enum Sexo{
-		MASCULINO,
-		FEMENINO;
+	private Cidade cidade;
+	
+	public enum TipoLogradouro{
+		AVENIDA,
+		RUA;
 	}
 }
