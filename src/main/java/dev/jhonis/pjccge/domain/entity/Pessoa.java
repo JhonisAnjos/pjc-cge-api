@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -37,6 +39,7 @@ public class Pessoa implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
+	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
 	private String nomeMae;

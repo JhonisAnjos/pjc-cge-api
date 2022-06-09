@@ -1,11 +1,14 @@
 package dev.jhonis.pjccge.domain.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,40 +19,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cidade implements Serializable{
-
+public class FotoPessoa implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
-
+	
 	@Include
 	@Id
 	private Long id;
 	
-	private String nome;
+	@ManyToOne
+	@JoinColumn(name = "pessoa_id")
+	private Pessoa pessoa;
 	
-	@Enumerated(EnumType.STRING)
-	private Uf uf;
+	@Temporal(TemporalType.DATE)
+	private Date data;
 	
-	public enum Uf{
-		AM,
-		BA,
-		CE,
-		DF,
-		ES,
-		GO,
-		MA,
-		MT,
-		MS,
-		MG,
-		PA,
-		PB,
-		PR,
-		PE,
-		PI,
-		RJ,
-		RN,
-		RS,
-		RO,
-		RR,
-		SC;
-	}
+	private String bucket;
+	
+	private String hash;
+
 }
