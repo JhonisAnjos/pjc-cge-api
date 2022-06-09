@@ -3,10 +3,14 @@ package dev.jhonis.pjccge.domain.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,6 +40,14 @@ public class Pessoa implements Serializable{
 	
 	private String nomePai;
 
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "pessoa_endereco", 
+      joinColumns = 
+        { @JoinColumn(name = "pessoa_id", referencedColumnName = "id") },
+      inverseJoinColumns = 
+        { @JoinColumn(name = "endereco_id", referencedColumnName = "id") })
+	private Endereco endereco;
+	
 	public enum Sexo{
 		MASCULINO,
 		FEMENINO;
