@@ -2,8 +2,12 @@ package dev.jhonis.pjccge.domain.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,4 +29,12 @@ public class Unidade implements Serializable{
 	private String nome;
 	
 	private String sigla;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "unidade_endereco", 
+      joinColumns = 
+        { @JoinColumn(name = "unidade_id", referencedColumnName = "id") },
+      inverseJoinColumns = 
+        { @JoinColumn(name = "pessoa_id", referencedColumnName = "id") })
+	private Endereco endereco;
 }
