@@ -11,6 +11,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,6 +34,7 @@ public class Pessoa implements Serializable{
 	
 	private String nome;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
 	private Sexo sexo;
