@@ -52,6 +52,7 @@ public class Cidade implements Serializable{
 		RS,
 		RO,
 		RR,
+		TO,
 		SC;
 	}
 }
