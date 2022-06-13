@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -24,6 +25,7 @@ public class Unidade implements Serializable{
 
 	@Include
 	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String nome;

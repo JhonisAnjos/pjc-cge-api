@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Cidade implements Serializable{
 
 	@Include
 	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String nome;

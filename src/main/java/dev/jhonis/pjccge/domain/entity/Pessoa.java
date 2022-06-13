@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -32,6 +33,7 @@ public class Pessoa implements Serializable{
 	
 	@Include
 	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String nome;

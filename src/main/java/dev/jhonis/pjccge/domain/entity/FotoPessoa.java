@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,6 +26,7 @@ public class FotoPessoa implements Serializable {
 	
 	@Include
 	@Id
+	@GeneratedValue
 	private Long id;
 	
 	@ManyToOne
