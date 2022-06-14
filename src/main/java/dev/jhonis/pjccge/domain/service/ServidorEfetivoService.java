@@ -1,4 +1,4 @@
-package dev.jhonis.pjccge.domain;
+package dev.jhonis.pjccge.domain.service;
 
 import org.springframework.stereotype.Service;
 

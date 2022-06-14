@@ -38,7 +38,7 @@ public class Endereco implements Serializable {
 	private String bairro;
 	
 	@ManyToOne
-	@JoinColumn(name = "pessoa_id")
+	@JoinColumn(name = "cidade_id")
 	private Cidade cidade;
 	
 	public enum TipoLogradouro{
